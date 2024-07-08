@@ -22,8 +22,8 @@ pipeline {
                     sh '''
                         mkdir -p ~/.ssh
                         ssh-keyscan -H 172.31.17.79 >> ~/.ssh/known_hosts 
-                        scp -i $SSH_KEY -r build/* ec2-user@13.232.83.182:/var/www/html
-                        ssh -i $SSH_KEY ec2-user@13.232.83.182 'sudo systemctl restart httpd'
+                        scp -i $SSH_KEY -r build/* ec2-user@172.31.17.79:/var/www/html
+                        ssh -i $SSH_KEY ec2-user@172.31.17.79 'sudo systemctl restart httpd'
                     '''
                 }
                 // Commands to deploy your build, e.g., copying files to a server

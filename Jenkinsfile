@@ -20,7 +20,8 @@ pipeline {
                     credentialsId: 'counter-app-server-ec2',
                     keyFileVariable: 'SSH_KEY')]) {
                     sh '''
-                        
+                        mkdir -p ~/.ssh
+                        ssh-keyscan -H 20.198.16.176 >> ~/.ssh/known_hosts 
                         scp -i $SSH_KEY -r build/* ec2-user@13.232.83.182:/var/www/html
                         ssh -i $SSH_KEY ec2-user@13.232.83.182 'sudo systemctl restart httpd'
                     '''

@@ -26,7 +26,6 @@ pipeline {
                         ssh -i $SSH_KEY ec2-user@172.31.17.79 'sudo systemctl restart httpd'
                     '''
                 }
-                // Commands to deploy your build, e.g., copying files to a server
             }
         }
     }
